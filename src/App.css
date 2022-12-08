@@ -1,3 +1,8 @@
 .App {
   text-align: center;
 }
+
+.nav-pills .nav-link.active {
+  background-color: #d6bcb0;
+  color: rgba(0,0,0,.55)
+}

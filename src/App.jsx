@@ -2,8 +2,8 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
-import ProfilePage from "./pages/ProfilePage";
 import LoginPage from "./pages/LoginPage";
+import UserProfile from "./pages/UserProfile";
 
 import Navbar from "./components/Navbar";
 import IsPrivate from "./components/IsPrivate";
@@ -15,13 +15,14 @@ function App() {
       <Navbar />
 
       <Routes>
+
         <Route path="/" element={<HomePage />} />
 
         <Route
           path="/profile"
           element={
             <IsPrivate>
-              <ProfilePage />
+              <UserProfile />
             </IsPrivate>
           }
         />
@@ -34,6 +35,7 @@ function App() {
             </IsAnon>
           }
         />
+        
       </Routes>
     </div>
   );

@@ -3,10 +3,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
-import {
-  MDBInput,
-  MDBBtn,
-} from 'mdb-react-ui-kit';
+import { MDBInput, MDBBtn } from 'mdb-react-ui-kit';
 
 const API_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:5005"
 
@@ -35,7 +32,9 @@ function LoginForm() {
             // and at last navigate to the home page
             storeToken(response.data.authToken);
             authenticateUser();
-            navigate("/");
+            navigate("/profile")
+          
+
         })
         .catch((error) => {
             // If the request resolves with an error, set the error message in the state
@@ -57,7 +56,7 @@ function LoginForm() {
             Login
           </MDBBtn>
 
-          {errorMessage && <p classNameName="error-message">{errorMessage}</p>} 
+          {errorMessage && <p className="error-message">{errorMessage}</p>} 
       
       </form>
 

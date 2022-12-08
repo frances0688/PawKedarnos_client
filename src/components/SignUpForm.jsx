@@ -1,4 +1,4 @@
- import React from 'react';
+import React from 'react';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -67,7 +67,7 @@ function SignUpForm() {
               Sign Up
             </MDBBtn>
 
-            {errorMessage && <p classNameName="error-message">{errorMessage}</p>}
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
 
           </form>
     );
