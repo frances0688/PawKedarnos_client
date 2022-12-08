@@ -10,7 +10,7 @@ import {
 const API_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:5005"
 
 
-function SignUpForm() {
+function SignUpForm({setLoginRegisterActive}) {
     const [name, setName] = useState("");
     const [lastname, setLastname] = useState("");
     const [dob, setDob] = useState("");
@@ -41,7 +41,7 @@ function SignUpForm() {
       })
         .then((response) => {
           // If the POST request is successful redirect to the login page
-          navigate("/login");
+          setLoginRegisterActive('login')
         })
         .catch((error) => {
           // If the request resolves with an error, set the error message in the state

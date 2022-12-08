@@ -32,9 +32,10 @@ function LoginForm() {
             // and at last navigate to the home page
             storeToken(response.data.authToken);
             authenticateUser();
-            navigate("/profile")
+            setTimeout(()=>{
+                navigate("/profile")
+            }, 100)
           
-
         })
         .catch((error) => {
             // If the request resolves with an error, set the error message in the state

@@ -66,7 +66,7 @@ function LoginPage() {
                         </div>
                     </MDBTabsPane>
                     <MDBTabsPane show={loginRegisterActive === 'register'}>
-                        <SignUpForm/>
+                        <SignUpForm setLoginRegisterActive={setLoginRegisterActive}/>
                         <div className='text-center'>
                           <p>
                             Already have an account? <Link onClick={() => handleLoginRegisterClick('login')}>Login</Link>
