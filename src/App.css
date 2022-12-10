@@ -1,8 +1,51 @@
 .App {
+  margin: 0;
   text-align: center;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .nav-pills .nav-link.active {
   background-color: #d6bcb0;
   color: rgba(0,0,0,.55)
 }
+
+.overlay { 
+  background-color: rgba(191,187,152, 0.6);
+  padding: 3%;
+  color:#fff;
+  position:absolute;
+  z-index:12;
+  bottom:25%;
+  left:25%;
+  width:50%;
+  text-align:center;
+}
+
+.me-5,
+.me-3,
+.me-2 {
+  margin: 0 !important;
+}
+
+a, Link {
+  color:inherit;
+  text-decoration: none;
+}
+
+.gradient-custom-2 {
+  background: #d6bcb0;
+  background: -webkit-linear-gradient(to right, #fde3d8, #d6bcb0, #b7b9ae, #B2A8A2);
+  background: linear-gradient(to right, #fde3d8, #d6bcb0, #b7b9ae, #B2A8A2);
+  }
+  
+  @media (min-width: 768px) {
+  .gradient-form {
+  height: 100vh !important;
+  }
+  }
+  @media (min-width: 769px) {
+  .gradient-custom-2 {
+  border-top-right-radius: .3rem;
+  border-bottom-right-radius: .3rem;
+  }
+  }

@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import {
   MDBInput,
@@ -17,8 +16,6 @@ function SignUpForm({setLoginRegisterActive}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState(undefined);
-  
-    const navigate = useNavigate();
   
     const handleName = (e) => setName(e.target.value);
     const handleLastname = (e) => setLastname(e.target.value);

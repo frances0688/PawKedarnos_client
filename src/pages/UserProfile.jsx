@@ -59,7 +59,7 @@ function UserProfile(props) {
                     <h5 className="my-3">{oneUser.name} {oneUser.lastname}</h5>
                     <div className="d-flex justify-content-center mb-2">
                         <Link className='link-dark'><MDBBtn outline className="me-3" color='secondary'>Edit Profile</MDBBtn></Link>
-                        <Link className='link-dark'><MDBBtn outline className="me-3" color='secondary'>Add Pet</MDBBtn></Link>
+                        <Link to="/pets/add" className='link-dark'><MDBBtn outline className="me-3" color='secondary'>Add Pet</MDBBtn></Link>
                     </div>
                 </MDBCardBody>
                 </MDBCard>
@@ -155,8 +155,9 @@ function UserProfile(props) {
 
                 <MDBRow>
                     {oneUser.pets && oneUser.pets.map((pet) => {
-                        return (
-                            <MDBCol md="6">
+                        if (pet.active){
+                            return (
+                                <MDBCol key="pet._id" md="4">
                                 <MDBCard className="mb-4 mb-md-0">
                                     <MDBCardBody>
                                         <MDBCardImage
@@ -167,13 +168,14 @@ function UserProfile(props) {
                                             fluid />
                                             <h5 className="my-3">{pet.name}</h5>
                                             <div className="d-flex justify-content-center mb-2">
-                                                <Link className='link-dark'><MDBBtn outline className="me-3" color='secondary'>Edit Pet Profile</MDBBtn></Link>
+                                                <Link className='link-dark'><MDBBtn outline className="me-3" color='secondary'>Profile</MDBBtn></Link>
                                                 <Link className='link-dark'><MDBBtn outline className="me-3" color='secondary'>Deactivate</MDBBtn></Link>
                                             </div>
                                         </MDBCardBody>
                                 </MDBCard>
                             </MDBCol>
                         );
+                        }
                     })} 
 
 
