@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/auth.context";
 import React from 'react';
@@ -42,8 +41,8 @@ function Navbar() {
             </MDBNavbarToggler>
             <MDBCollapse navbar show={showNavNoTogglerSecond}>
                 <MDBNavbarNav right className='mr-auto mb-2 mb-lg-0 justify-content-end'>
-                  <MDBNavbarLink href='/about' className='me-2'>
-                        About Us
+                    <MDBNavbarLink href='/about' className='me-2'>
+                          About Us
                     </MDBNavbarLink>
                     <MDBNavbarLink href="/services" className='me-2'>
                         Book Services
@@ -51,16 +50,15 @@ function Navbar() {
                     <MDBNavbarLink href="/faq" className='me-2'>
                         FAQ
                     </MDBNavbarLink>
-
-              </MDBNavbarNav>
-          </MDBCollapse>
+                </MDBNavbarNav>
+            </MDBCollapse>
                       {isLoggedIn && (
                         <>
-                          <Link to="/profile">
+                          <MDBNavbarLink href="/profile">
                             <MDBBtn className='gradient-custom-2 me-2' type='button'>
                               Profile
                             </MDBBtn>
-                          </Link>
+                          </MDBNavbarLink>
                           <MDBBtn className='gradient-custom-2 me-2' type='button' onClick={logOutUser}>
                             Logout
                           </MDBBtn>
@@ -69,11 +67,11 @@ function Navbar() {
 
                       {!isLoggedIn && (
                         <>
-                          <Link to="/login">
+                          <MDBNavbarLink href="/login">
                             <MDBBtn className='gradient-custom-2 me-2' type='button'>
                               Sign In
                             </MDBBtn>
-                          </Link>
+                          </MDBNavbarLink>
                         </>
                       )}
         </MDBContainer>

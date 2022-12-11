@@ -21,6 +21,11 @@ function UserProfile(props) {
     const { user } = useContext(AuthContext);
     const [oneUser, setOneUser] = useState(user);
 
+    const errMessage = () =>{
+        if (oneUser.phone === "" || oneUser.addressStreet === "" || oneUser.emergencyContactPhone === ""){
+        return
+    }}
+
     const getUser = () => {
       // Get the token from the localStorage
       const storedToken = localStorage.getItem('authToken');
@@ -43,7 +48,7 @@ function UserProfile(props) {
     <>
     {oneUser && (            
         
-        <section className="UserProfile" style={{ backgroundColor: '#eee' }}>
+        <section className="UserProfile">
         <MDBContainer className="py-5">
             <MDBRow>
             <MDBCol lg="4">
@@ -58,7 +63,7 @@ function UserProfile(props) {
                     fluid />
                     <h5 className="my-3">{oneUser.name} {oneUser.lastname}</h5>
                     <div className="d-flex justify-content-center mb-2">
-                        <Link className='link-dark'><MDBBtn outline className="me-3" color='secondary'>Edit Profile</MDBBtn></Link>
+                        <Link to="/profile/edit" className='link-dark'><MDBBtn outline className="me-3" color='secondary'>Edit Profile</MDBBtn></Link>
                         <Link to="/pets/add" className='link-dark'><MDBBtn outline className="me-3" color='secondary'>Add Pet</MDBBtn></Link>
                     </div>
                 </MDBCardBody>
@@ -93,71 +98,74 @@ function UserProfile(props) {
             </MDBCol>
             <MDBCol lg="8">
                 <MDBCard className="mb-4">
-                <MDBCardBody>
-                    <MDBRow>
-                    <MDBCol sm="3">
-                        <MDBCardText>Full Name</MDBCardText>
-                    </MDBCol>
-                    <MDBCol sm="9">
-                        <MDBCardText className="text-muted">{oneUser.name} {oneUser.lastname}</MDBCardText>
-                    </MDBCol>
-                    </MDBRow>
-                    <hr />
-                    <MDBRow>
-                    <MDBCol sm="3">
-                        <MDBCardText>Email</MDBCardText>
-                    </MDBCol>
-                    <MDBCol sm="9">
-                        <MDBCardText className="text-muted">{oneUser.email}</MDBCardText>
-                    </MDBCol>
-                    </MDBRow>
-                    <hr />
-                    {oneUser.phone && (
-                    <>
+                    <MDBCardBody>
                         <MDBRow>
-                        <MDBCol sm="3">
-                            <MDBCardText>Phone</MDBCardText>
-                        </MDBCol>
-                        <MDBCol sm="9">
-                            <MDBCardText className="text-muted">{oneUser.phone}</MDBCardText>
-                        </MDBCol>
+                            <MDBCol sm="3">
+                                <MDBCardText>Full Name</MDBCardText>
+                            </MDBCol>
+                            <MDBCol sm="9">
+                                <MDBCardText className="text-muted">{oneUser.name} {oneUser.lastname}</MDBCardText>
+                            </MDBCol>
                         </MDBRow>
                         <hr />
-                    </>
-                    )}
-                    {oneUser.addressStreet && (
-                    <>
                         <MDBRow>
-                        <MDBCol sm="3">
-                            <MDBCardText>Address</MDBCardText>
-                        </MDBCol>
-                        <MDBCol sm="9">
-                            <MDBCardText className="text-muted">{oneUser.addressStreet}, {oneUser.addressCity}, {oneUser.addressZip} {oneUser.addressState}</MDBCardText>
-                        </MDBCol>
+                            <MDBCol sm="3">
+                                <MDBCardText>Email</MDBCardText>
+                            </MDBCol>
+                            <MDBCol sm="9">
+                                <MDBCardText className="text-muted">{oneUser.email}</MDBCardText>
+                            </MDBCol>
                         </MDBRow>
-                    </>
-                    )}
-                    {oneUser.emergencyContactName && (
-                    <>
+                        <hr />
                         <MDBRow>
-                        <MDBCol sm="3">
-                            <MDBCardText>Emergency Contact</MDBCardText>
-                        </MDBCol>
-                        <MDBCol sm="9">
-                            <MDBCardText className="text-muted">Name: {oneUser.emergencyContactName}</MDBCardText>
-                            <MDBCardText className="text-muted">Phone number: {oneUser.emergencyContactPhone}</MDBCardText>
-                        </MDBCol>
+                            <MDBCol sm="3">
+                                <MDBCardText>Phone</MDBCardText>
+                            </MDBCol>
+                            <MDBCol sm="9">
+                                <MDBCardText className="text-muted">{oneUser.phone}</MDBCardText>
+                            </MDBCol>
                         </MDBRow>
-                    </>
-                    )}
-                </MDBCardBody>
+                        <hr />
+                        <MDBRow>
+                            <MDBCol sm="3">
+                                <MDBCardText>Address</MDBCardText>
+                            </MDBCol>
+                            <MDBCol sm="9">
+                                <MDBCardText className="text-muted">{oneUser.addressStreet}, {oneUser.addressCity}, {oneUser.addressZip} {oneUser.addressState}</MDBCardText>
+                            </MDBCol>
+                        </MDBRow>
+                        <hr />
+                        <MDBRow>
+                            <MDBCol sm="3">
+                                <MDBCardText>Emergency Contact</MDBCardText>
+                            </MDBCol>
+                            <MDBCol sm="9">
+                                <MDBCardText className="text-muted text-start">Name: {oneUser.emergencyContactName}</MDBCardText>
+                                <MDBCardText className="text-muted text-start">Phone number: {oneUser.emergencyContactPhone}</MDBCardText>
+                            </MDBCol>
+                        </MDBRow>
+                        <hr />
+                        {errMessage && (
+                            <>
+                            <div className="alert alert-warning" role="alert">
+                                Please complete your profile.
+                            </div>
+                            <Link to='/profile/edit' className='link-dark'>
+                                <MDBBtn outline className="me-3" color='secondary'>
+                                    Complete Profile
+                                </MDBBtn>
+                            </Link>
+                            </>
+                        )}
+
+                    </MDBCardBody>
                 </MDBCard>
 
                 <MDBRow>
                     {oneUser.pets && oneUser.pets.map((pet) => {
                         if (pet.active){
                             return (
-                                <MDBCol key="pet._id" md="4">
+                                <MDBCol key="pet._id" md="4" className='mb-3'>
                                 <MDBCard className="mb-4 mb-md-0">
                                     <MDBCardBody>
                                         <MDBCardImage
@@ -175,7 +183,8 @@ function UserProfile(props) {
                                 </MDBCard>
                             </MDBCol>
                         );
-                        }
+                    }
+                    return null
                     })} 
 
 

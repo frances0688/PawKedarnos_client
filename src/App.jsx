@@ -2,14 +2,21 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import ServicesPage from "./pages/ServicesPage";
+import FAQ from "./pages/FAQ";
+
 import LoginPage from "./pages/LoginPage";
 import UserProfile from "./pages/UserProfile";
-import AddPet from "./pages/AddPet";
+import EditUserPage from "./pages/EditUserPage";
 
+import AddPetPage from "./pages/AddPetPage";
+import PetProfile from "./pages/PetProfile";
+
+import IsAnon from "./components/IsAnon";
+import IsPrivate from "./components/IsPrivate";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import IsPrivate from "./components/IsPrivate";
-import IsAnon from "./components/IsAnon";
 
 function App() {
   return (
@@ -20,11 +27,11 @@ function App() {
 
         <Route path="/" element={<HomePage />} />
 
-        {/* <Route path="/about" element={<About />} />
+        <Route path="/about" element={<AboutPage />} />
 
-        <Route path="/services" element={<Services />} />
+        <Route path="/services" element={<ServicesPage />} />
 
-        <Route path="/faq" element={<FAQ />} /> */}
+        <Route path="/faq" element={<FAQ />} />
 
         <Route
           path="/login"
@@ -44,29 +51,29 @@ function App() {
           }
         />
 
-        {/* <Route
+        <Route
           path="/profile/edit"
           element={
             <IsPrivate>
-              <EditUser />
+              <EditUserPage />
             </IsPrivate>
           }
-        /> */}
+        />
 
-        {/* <Route
+        <Route
           path="/pets"
           element={
             <IsPrivate>
               <PetProfile />
             </IsPrivate>
           }
-        />  */}
+        /> 
         
         <Route
           path="/pets/add"
           element={
             <IsPrivate>
-              <AddPet />
+              <AddPetPage />
             </IsPrivate>
           }
         /> 
@@ -75,7 +82,7 @@ function App() {
           path="/pets/edit"
           element={
             <IsPrivate>
-              <EditPet />
+              <EditPetPage />
             </IsPrivate>
           }
         /> */}

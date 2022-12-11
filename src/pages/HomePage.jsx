@@ -8,10 +8,8 @@ import {
   MDBRow,
   MDBCardBody,
   MDBBtn,
-  MDBCard,
   MDBCardTitle,
-  MDBCardImage,
-  MDBCardText,
+  MDBCardImage
 } from 'mdb-react-ui-kit';
 import { Link } from "react-router-dom";
 
@@ -47,116 +45,115 @@ function HomePage() {
                 src='./img/CatPlaySlide.jpg'
                 alt='...'
               />
-              <MDBContainer className="overlay">
-                <h1>A new health & wellness approach to pet care.</h1>
+              <MDBContainer fluid className="justify-content-center">
+                <MDBRow className='overlay justify-content-center'>
+                  <MDBCol md='12'>
+                    <h1>A new health & wellness approach to pet care.</h1>
+                  </MDBCol>
+                </MDBRow>
               </MDBContainer>
             </MDBCarousel>
           <MDBContainer>
             <MDBRow>
               <MDBCol md="12" className="mt-4">
+                <MDBCardImage
+                  src="./img/PawKedarnosLogo.png"
+                  alt="Boarding Icon"
+                  style={{ width: '350px' }}
+                  className="my-5"
+                  fluid 
+                />
+                <hr />
                 <h2 className="text-center my-5 font-weight-bold">
                   Who We Are
                 </h2>
-                <h5 className="text-center text-muted">
+                <h4 className="text-center text-muted">
                   We are a cage-free boarding experience with one simple mission: making your pets feel like they’re at home. 
                   At PawKedarnos, we offer a variety of services catered to the needs of every individual pet. 
                   Owned by a veterinary technician, we are able to offer medical/wellness services for any animal that may require them. 
-                </h5>
-                <Link to="/about">
-                    <MDBBtn outline color="secondary" className='my-5' type='button'>
-                      Learn More
+                </h4>
+                <Link to="/about" >
+                    <MDBBtn className='my-5' type='button' style={{ backgroundColor: '#D3BC8D' }} >
+                      <h6 style={{ marginBottom: "0" }}>Meet the Team</h6>
                     </MDBBtn>
                 </Link>
-                <hr className="my-5" />
+                <hr className="mb-5" />
                 <MDBRow id="categories" className="justify-content-center">
-                  <h2 className="my-5 text-center font-weight-bold">
+                  <h2 className="mb-5 text-center font-weight-bold">
                     Our Services
                   </h2>
-                  <MDBCol md="2">
-                    <MDBCard cascade className="my-3">
+                  <MDBCol md="3">
+                    <MDBContainer cascade className="my-3">
                       <MDBCardBody cascade className="text-center">
-                        <MDBCardTitle>
-                          <strong>Boarding</strong>
-                        </MDBCardTitle>
-                        <MDBCardImage
-                            src=""
-                            alt="Boarding Icon"
-                            className="rounded-circle"
-                            style={{ width: '100px' }}
-                            fluid 
-                        />
-                        <Link to="">
-                          <MDBBtn outline color="secondary" className='me-2' type='button'>
-                            Learn More
-                          </MDBBtn>
-                        </Link>
+                          <Link to="">
+                            <MDBCardImage
+                              src="./img/icons-pet-house2.png"
+                              alt="Boarding Icon"
+                              className="rounded-circle mb-3"
+                              fluid 
+                              />
+                            <MDBCardTitle>
+                              Boarding
+                            </MDBCardTitle>
+                          </Link>
                       </MDBCardBody>
-                    </MDBCard>
+                    </MDBContainer>
                   </MDBCol>
-                  <MDBCol md="2">
-                    <MDBCard cascade className="my-3">
+                  <MDBCol md="3">
+                    <MDBContainer cascade className="my-3">
                       <MDBCardBody cascade className="text-center">
-                        <MDBCardTitle>
-                          <strong>Day Care</strong>
-                        </MDBCardTitle>
-                        <MDBCardImage
-                            src=""
-                            alt="Day Care Icon"
-                            className="rounded-circle"
-                            style={{ width: '100px' }}
-                            fluid 
-                        />
-                        <Link to="">
-                          <MDBBtn outline color="secondary" className='me-2' type='button'>
-                            Learn More
-                          </MDBBtn>
-                        </Link>
+                          <Link to="">
+                            <MDBCardImage
+                              src="./img/icons-toys.png"
+                              alt="Day Care Icon"
+                              className="rounded-circle mb-3"
+                              fluid 
+                              />
+                            <MDBCardTitle>
+                              Day Care
+                            </MDBCardTitle>
+                          </Link>
                       </MDBCardBody>
-                    </MDBCard>
+                    </MDBContainer>
                   </MDBCol>
-                  <MDBCol md="2">
-                    <MDBCard cascade className="my-3">
+                  <MDBCol md="3">
+                    <MDBContainer cascade className="my-3">
                       <MDBCardBody cascade className="text-center">
-                        <MDBCardTitle>
-                          <strong>House Visit</strong>
-                        </MDBCardTitle>
-                        <MDBCardImage
-                            src=""
-                            alt="House Visit Icon"
-                            className="rounded-circle"
-                            style={{ width: '100px' }}
-                            fluid 
-                        />
-                        <Link to="">
-                          <MDBBtn outline color="secondary" className='me-2' type='button'>
-                            Learn More
-                          </MDBBtn>
-                        </Link>
+                          <Link to="">
+                            <MDBCardImage
+                              src="./img/icons-doorbell.png"
+                              alt="House Visit Icon"
+                              className="rounded-circle mb-3"
+                              fluid 
+                              />
+                            <MDBCardTitle>
+                              House Visit
+                            </MDBCardTitle>
+                          </Link>
                       </MDBCardBody>
-                    </MDBCard>
+                    </MDBContainer>
                   </MDBCol>
-                  <MDBCol md="2">
-                    <MDBCard cascade className="my-3">
+                  <MDBCol md="3">
+                    <MDBContainer cascade className="my-3">
                       <MDBCardBody cascade className="text-center">
-                        <MDBCardTitle>
-                          <strong>Grooming</strong>
-                        </MDBCardTitle>
-                        <MDBCardImage
-                            src=""
-                            alt="Grooming Icon"
-                            className="rounded-circle"
-                            style={{ width: '100px' }}
-                            fluid 
-                        />
-                        <Link to="">
-                          <MDBBtn outline color="secondary" className='me-2' type='button'>
-                            Learn More
-                          </MDBBtn>
-                        </Link>
+                          <Link to="">
+                            <MDBCardImage
+                              src="./img/icons-grooming.png"
+                              alt="Grooming Icon"
+                              className="rounded-circle mb-3"
+                              fluid 
+                              />
+                            <MDBCardTitle>
+                              Grooming
+                            </MDBCardTitle>
+                          </Link>
                       </MDBCardBody>
-                    </MDBCard>
+                    </MDBContainer>
                   </MDBCol>
                 </MDBRow>
+                  <MDBBtn className='my-5' type='button' style={{ backgroundColor: '#D3BC8D' }} >
+                    <h6 style={{ marginBottom: "0" }} >Details and Prices</h6>
+                  </MDBBtn>
               </MDBCol>
             </MDBRow>
           </MDBContainer>

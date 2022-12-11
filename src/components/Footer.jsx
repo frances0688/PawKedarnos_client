@@ -1,61 +1,41 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   MDBFooter,
-  MDBContainer,
   MDBIcon,
-  MDBBtn
 } from 'mdb-react-ui-kit';
 
 function Footer() {
   return (
-    <MDBFooter light expand='lg' className='text-white' bgColor='light'>
-      <MDBContainer className='pt-4'>
-        <section className='mb-4 justify-content-end'>
-          
-          <MDBBtn
-            rippleColor="dark"
-            color='link'
-            floating
-            size="lg"
-            className='text-dark m-1'
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab className='fab fa-facebook-f' />
-          </MDBBtn>
-
-          <MDBBtn
-            rippleColor="dark"
-            color='link'
-            floating
-            size="lg"
-            className='text-dark m-1'
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab className='fa-instagram' />
-          </MDBBtn>
-
-          <MDBBtn
-            rippleColor="dark"
-            color='link'
-            floating
-            size="lg"
-            className='text-dark m-1'
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab className='fa-linkedin' />
-          </MDBBtn>
-
+    <MDBFooter light className='text-center fixed-bottom' bgColor='light'>
+        
+        <section className='d-sm-flex  justify-content-lg-between text-md-center text-sm-center p-4'>
+          <div className='me-5 d-none d-lg-block d-sm-block justify-content-center text-muted'>
+            Special Requests or Questions? {' '}
+            <Link className='text-dark' to='/contact-us' style={{ textDecoration: 'underline' }}>
+              Contact Us!
+            </Link>
+          </div>
+          <div className='me-4 d-none d-lg-block d-sm-block justify-content-center'>
+            <span className="me-4 text-muted" >Connect with us:</span>
+              <a href='#' className='me-4 text-reset' >
+                <MDBIcon fab icon='facebook-f' />
+              </a>
+              <a href='https://instagram.com/pawkedarnos' target="_blank" rel="noreferrer" className='me-4 text-reset'>
+                <MDBIcon fab icon='instagram' />
+              </a>
+              <a href='#' className='me-4 text-reset'>
+                <MDBIcon fab icon='linkedin' />
+              </a>
+          </div>
         </section>
-      </MDBContainer>
 
-      <div className='text-center text-dark p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
-        © 2022 Copyright: 
-        <a className='text-dark' href=''>
+        <div className='text-center p-3 text-muted' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
+          © 2022 Copyright:{' '}
+        <a className='text-dark' target="_blank" rel="noreferrer" href='https://www.linkedin.com/in/frances-morales/' style={{ textDecoration: 'underline' }}>
           Frances Morales
         </a>
+      
       </div>
     </MDBFooter>
   );

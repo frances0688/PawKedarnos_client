@@ -1,11 +1,11 @@
 .App {
-  margin: 0;
+  margin-bottom: 15vh;
   text-align: center;
   font-family: 'Quicksand', sans-serif;
 }
 
 .nav-pills .nav-link.active {
-  background-color: #d6bcb0;
+  background-color: #b89b8e;
   color: rgba(0,0,0,.55)
 }
 
@@ -16,8 +16,8 @@
   position:absolute;
   z-index:12;
   bottom:25%;
-  left:25%;
-  width:50%;
+  left:10vw;
+  width:80vw;
   text-align:center;
 }
 
@@ -33,9 +33,9 @@ a, Link {
 }
 
 .gradient-custom-2 {
-  background: #d6bcb0;
-  background: -webkit-linear-gradient(to right, #fde3d8, #d6bcb0, #b7b9ae, #B2A8A2);
-  background: linear-gradient(to right, #fde3d8, #d6bcb0, #b7b9ae, #B2A8A2);
+  background: #d8c2a8;
+  background: -webkit-linear-gradient(to right, #d6bcb0, #d8c2a8, #b7b9ae, #B2A8A2);
+  background: linear-gradient(to right, #d6bcb0, #d8c2a8, #b7b9ae, #B2A8A2);
   }
   
   @media (min-width: 768px) {
@@ -48,4 +48,8 @@ a, Link {
   border-top-right-radius: .3rem;
   border-bottom-right-radius: .3rem;
   }
+  }
+
+  .rounded-circle {
+    height: 150px;
   }
