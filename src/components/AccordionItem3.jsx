@@ -22,6 +22,7 @@ function AccordionItem3(props) {
                     id='inlineRadio-pottyScheduleHour' 
                     value='every hour' 
                     label='Every hour' 
+                    checked={props.pottySchedule == 'every hour'}
                     onChange={(e) => props.setPottySchedule(e.target.value)}
                     inline 
                 />
@@ -30,6 +31,7 @@ function AccordionItem3(props) {
                     id='inlineRadio-pottySchedule2Hours' 
                     value='every 2 hours' 
                     label='Every 2 hours' 
+                    checked={props.pottySchedule == 'every 2 hours'}
                     onChange={(e) => props.setPottySchedule(e.target.value)}
                     inline 
                 />
@@ -38,15 +40,16 @@ function AccordionItem3(props) {
                     id='inlineRadio-pottySchedule4Hours' 
                     value='every 4 hours' 
                     label='Every 4 hours' 
+                    checked={props.pottySchedule == 'every 4 hours'}
                     onChange={(e) => props.setPottySchedule(e.target.value)}
                     inline 
-                    defaultChecked
                 />
                 <MDBRadio 
                     name='pottySchedule' 
                     id='inlineRadio-pottySchedule8Hours' 
                     value='every 8 hours' 
                     label='Every 8 hours' 
+                    checked={props.pottySchedule == 'every 8 hours'}
                     onChange={(e) => props.setPottySchedule(e.target.value)}
                     inline 
                 />
@@ -55,6 +58,7 @@ function AccordionItem3(props) {
                     id='inlineRadio-pottyScheduleCustom' 
                     value='custom' 
                     label='Custom' 
+                    checked={props.pottySchedule == 'custom'}
                     onChange={(e) => props.setPottySchedule(e.target.value)}
                     inline 
                 />
@@ -71,6 +75,7 @@ function AccordionItem3(props) {
                     id='inlineRadio-energyHigh' 
                     value='high' 
                     label='High' 
+                    checked={props.energy == 'high'}
                     onChange={(e) => props.setEnergy(e.target.value)}
                     inline 
                 />
@@ -79,15 +84,16 @@ function AccordionItem3(props) {
                     id='inlineRadio-energyModerate' 
                     value='moderate' 
                     label='Moderate' 
+                    checked={props.energy == 'moderate'}
                     onChange={(e) => props.setEnergy(e.target.value)}
                     inline 
-                    defaultChecked
                 />
                 <MDBRadio 
                     name='energy' 
                     id='inlineRadio-energyLow' 
                     value='low' 
                     label='Low' 
+                    checked={props.energy == 'low'}
                     onChange={(e) => props.setEnergy(e.target.value)}
                     inline 
                 />
@@ -104,6 +110,7 @@ function AccordionItem3(props) {
                     id='inlineRadio-feedingScheduleMorning' 
                     value='morning' 
                     label='Morning' 
+                    checked={props.feedingSchedule == 'morning'}
                     onChange={(e) => props.setFeedingSchedule(e.target.value)}
                     inline 
                 />
@@ -111,16 +118,17 @@ function AccordionItem3(props) {
                     name='feedingSchedule' 
                     id='inlineRadio-feedingSchedule2Day' 
                     value='twice a day' 
-                    label='Twice a day' 
+                    label='Twice a day'
+                    checked={props.feedingSchedule == 'twice a day'}
                     onChange={(e) => props.setFeedingSchedule(e.target.value)}
                     inline 
-                    defaultChecked
                 />
                 <MDBRadio 
                     name='feedingSchedule' 
                     id='inlineRadio-feedingScheduleCustom' 
                     value='custom' 
                     label='Custom' 
+                    checked={props.feedingSchedule == 'custom'}
                     onChange={(e) => props.setFeedingSchedule(e.target.value)}
                     inline 
                 />
@@ -137,6 +145,7 @@ function AccordionItem3(props) {
                     id='inlineRadio-canBeAloneHour' 
                     value='less than 1 hour' 
                     label='Less than 1 hour' 
+                    checked={props.canBeAlone == 'less than 1 hour'}
                     onChange={(e) => props.setCanBeAlone(e.target.value)}
                     inline 
                 />
@@ -145,15 +154,16 @@ function AccordionItem3(props) {
                     id='inlineRadio-canBeAlone1-4Hours' 
                     value='1 - 4 hours' 
                     label='1 - 4 hours' 
+                    checked={props.canBeAlone == '1 - 4 hours'}
                     onChange={(e) => props.setCanBeAlone(e.target.value)}
                     inline 
-                    defaultChecked
                 />
                 <MDBRadio 
                     name='canBeAlone' 
                     id='inlineRadio-canBeAlone4-8Hours' 
                     value='4 - 8 hours' 
                     label='4 - 8 hours' 
+                    checked={props.canBeAlone == '4 - 8 hours'}
                     onChange={(e) => props.setCanBeAlone(e.target.value)}
                     inline 
                 />
@@ -162,6 +172,7 @@ function AccordionItem3(props) {
                     id='inlineRadio-canBeAloneCustom' 
                     value='custom' 
                     label='Custom' 
+                    checked={props.canBeAlone == 'custom'}
                     onChange={(e) => props.setCanBeAlone(e.target.value)}
                     inline 
                 />

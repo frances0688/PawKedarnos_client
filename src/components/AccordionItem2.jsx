@@ -20,17 +20,18 @@ function AccordionItem2(props) {
                 <MDBRadio 
                     name='microchipped' 
                     id='inlineRadio-microchippedYes' 
-                    value='true' 
+                    value={true} 
                     label='Yes' 
-                    onChange={(e) => props.setMicrochipped(e.target.value)}
+                    checked={props.microchipped == true}
+                    onChange={(e) => {props.setMicrochipped(e.target.value); console.log(e.target.value, props.microchipped)}}
                     inline
-                    defaultChecked 
                 />
                 <MDBRadio 
                     name='microchipped' 
                     id='inlineRadio-microchippedNo' 
-                    value='false' 
+                    value={false} 
                     label='No' 
+                    checked={props.microchipped == false}
                     onChange={(e) => props.setMicrochipped(e.target.value)}
                     inline 
                 />
@@ -47,15 +48,16 @@ function AccordionItem2(props) {
                     id='inlineRadio-spayedOrNeuteredYes' 
                     value='true' 
                     label='Yes' 
+                    checked={props.spayedOrNeutered == true}
                     onChange={(e) => props.setSpayedOrNeutered(e.target.value)}
                     inline 
-                    defaultChecked
                 />
                 <MDBRadio 
                     name='spayedOrNeutered' 
                     id='inlineRadio-spayedOrNeuteredNo' 
                     value='false' 
                     label='No' 
+                    checked={props.spayedOrNeutered == false}
                     onChange={(e) => props.setSpayedOrNeutered(e.target.value)}
                     inline 
                 />
@@ -72,15 +74,16 @@ function AccordionItem2(props) {
                     id='inlineRadio-houseTrainedYes' 
                     value='yes' 
                     label='Yes' 
+                    checked={props.houseTrained == 'yes'}
                     onChange={(e) => props.setHouseTrained(e.target.value)}
                     inline 
-                    defaultChecked
                 />
                 <MDBRadio 
                     name='houseTrained' 
                     id='inlineRadio-houseTrainedNo' 
                     value='no' 
                     label='No' 
+                    checked={props.houseTrained == 'no'}
                     onChange={(e) => props.setHouseTrained(e.target.value)}
                     inline 
                 />
@@ -89,6 +92,7 @@ function AccordionItem2(props) {
                     id='inlineRadio-houseTrainedUnsure' 
                     value='unsure' 
                     label='Unsure' 
+                    checked={props.houseTrained == 'unsure'}
                     onChange={(e) => props.setHouseTrained(e.target.value)}
                     inline 
                 />
@@ -97,6 +101,7 @@ function AccordionItem2(props) {
                     id='inlineRadio-houseTrainedDepends' 
                     value='depends' 
                     label='Depends' 
+                    checked={props.houseTrained == 'depends'}
                     onChange={(e) => props.setHouseTrained(e.target.value)}
                     inline 
                 />
@@ -113,15 +118,16 @@ function AccordionItem2(props) {
                     id='inlineRadio-friendlyWithDogsYes' 
                     value='true' 
                     label='Yes' 
+                    checked={props.friendlyWithDogs == true}
                     onChange={(e) => props.setFriendlyWithDogs(e.target.value)}
                     inline 
-                    defaultChecked
                 />
                 <MDBRadio 
                     name='friendlyWithDogs' 
                     id='inlineRadio-friendlyWithDogsNo' 
                     value='false' 
                     label='No' 
+                    checked={props.friendlyWithDogs == false}
                     onChange={(e) => props.setFriendlyWithDogs(e.target.value)}
                     inline 
                 />
@@ -138,15 +144,16 @@ function AccordionItem2(props) {
                     id='inlineRadio-friendlyWithCatsYes' 
                     value='true' 
                     label='Yes' 
+                    checked={props.friendlyWithCats == true}
                     onChange={(e) => props.setFriendlyWithCats(e.target.value)}
                     inline 
-                    defaultChecked
                 />
                 <MDBRadio 
                     name='friendlyWithCats' 
                     id='inlineRadio-friendlyWithCatsNo' 
                     value='false' 
                     label='No' 
+                    checked={props.friendlyWithCats == false}
                     onChange={(e) => props.setFriendlyWithCats(e.target.value)}
                     inline 
                 />

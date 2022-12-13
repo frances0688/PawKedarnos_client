@@ -41,8 +41,8 @@ function AccordionItem1(props) {
                     wrapperTag='span' 
                     label='Dog'
                     value="dog"
+                    checked={props.typeOfPet == 'dog'}
                     onChange={(e) => props.setTypeOfPet(e.target.value)}
-                    defaultChecked
                 />
                 <MDBRadio
                     btn
@@ -53,6 +53,7 @@ function AccordionItem1(props) {
                     wrapperTag='span'
                     label='Cat'
                     value="cat"
+                    checked={props.typeOfPet == 'cat'}
                     onChange={(e) => props.setTypeOfPet(e.target.value)}
                 />
             </MDBCol>
@@ -82,6 +83,7 @@ function AccordionItem1(props) {
             </MDBCol>
             <MDBCol sm="9">
                 <MDBInput 
+                    className='mb-3'
                     label='Years' 
                     type='number' 
                     name="ageYears"
@@ -111,8 +113,8 @@ function AccordionItem1(props) {
                     wrapperTag='span' 
                     label='Female'
                     value="female"
+                    checked={props.gender == 'female'}
                     onChange={(e) => props.setGender(e.target.value)}
-                    defaultChecked
                 />
                 <MDBRadio
                     btn
@@ -123,6 +125,7 @@ function AccordionItem1(props) {
                     wrapperTag='span'
                     label='Male'
                     value="male"
+                    checked={props.gender == 'male'}
                     onChange={(e) => props.setGender(e.target.value)}
                 />
             </MDBCol>

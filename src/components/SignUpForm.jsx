@@ -8,7 +8,6 @@ import {
 
 const API_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:5005"
 
-
 function SignUpForm({setLoginRegisterActive}) {
     const [name, setName] = useState("");
     const [lastname, setLastname] = useState("");

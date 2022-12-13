@@ -12,19 +12,19 @@ import {
     MDBCardBody,
     MDBCardImage,
     MDBBtn,
+    MDBListGroup,
+    MDBListGroupItem,
+    MDBIcon,
   } from 'mdb-react-ui-kit';
 
 
 const API_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:5005"
 
-function UserProfile(props) {
+function UserProfile() {
     const { user } = useContext(AuthContext);
     const [oneUser, setOneUser] = useState(user);
-
-    const errMessage = () =>{
-        if (oneUser.phone === "" || oneUser.addressStreet === "" || oneUser.emergencyContactPhone === ""){
-        return
-    }}
+    const [errMessage, setErrMessage] = useState(oneUser.phone === "" || oneUser.addressStreet === "" || oneUser.emergencyContactPhone === "")
+    
 
     const getUser = () => {
       // Get the token from the localStorage
@@ -35,6 +35,7 @@ function UserProfile(props) {
       .then((response) => {
         const foundUser = response.data;
         setOneUser(foundUser);
+        setErrMessage(foundUser.phone === "" || foundUser.phone === undefined || foundUser.addressStreet === "" || foundUser.addressStreet === undefined || foundUser.emergencyContactPhone === "" || foundUser.emergencyContactPhone === undefined)
       })
       .catch((error) => console.log(error));
     };
@@ -69,32 +70,35 @@ function UserProfile(props) {
                 </MDBCardBody>
                 </MDBCard>
 
-                {/* <MDBCard className="mb-4 mb-lg-0">
+                <MDBCard className="mb-4 mb-lg-0">
                 <MDBCardBody className="p-0">
+                    <h5 className='my-3'>Bookings</h5>
                     <MDBListGroup flush className="rounded-3">
+                    {<></>}
                     <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                        <MDBIcon fas icon="globe fa-lg text-warning" />
-                        <MDBCardText>https://mdbootstrap.com</MDBCardText>
+                        <MDBIcon fas icon=" globe fa-lg text-warning" />
+                        <MDBCardText>booking 1</MDBCardText>
                     </MDBListGroupItem>
                     <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
                         <MDBIcon fab icon="github fa-lg" style={{ color: '#333333' }} />
-                        <MDBCardText>mdbootstrap</MDBCardText>
+                        <MDBCardText>booking 2</MDBCardText>
                     </MDBListGroupItem>
                     <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
                         <MDBIcon fab icon="twitter fa-lg" style={{ color: '#55acee' }} />
-                        <MDBCardText>@mdbootstrap</MDBCardText>
+                        <MDBCardText>booking 3</MDBCardText>
                     </MDBListGroupItem>
                     <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
                         <MDBIcon fab icon="instagram fa-lg" style={{ color: '#ac2bac' }} />
-                        <MDBCardText>mdbootstrap</MDBCardText>
+                        <MDBCardText>booking 4</MDBCardText>
                     </MDBListGroupItem>
                     <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
                         <MDBIcon fab icon="facebook fa-lg" style={{ color: '#3b5998' }} />
-                        <MDBCardText>mdbootstrap</MDBCardText>
+                        <MDBCardText>booking 5</MDBCardText>
                     </MDBListGroupItem>
                     </MDBListGroup>
                 </MDBCardBody>
-                </MDBCard> */}
+                </MDBCard>
+
             </MDBCol>
             <MDBCol lg="8">
                 <MDBCard className="mb-4">
@@ -114,6 +118,15 @@ function UserProfile(props) {
                             </MDBCol>
                             <MDBCol sm="9">
                                 <MDBCardText className="text-muted">{oneUser.email}</MDBCardText>
+                            </MDBCol>
+                        </MDBRow>
+                        <hr />
+                        <MDBRow>
+                            <MDBCol sm="3">
+                                <MDBCardText>Date of Birth</MDBCardText>
+                            </MDBCol>
+                            <MDBCol sm="9">
+                                <MDBCardText className="text-muted">{(new Date(oneUser.dob)).toLocaleDateString()}</MDBCardText>
                             </MDBCol>
                         </MDBRow>
                         <hr />
@@ -140,8 +153,8 @@ function UserProfile(props) {
                                 <MDBCardText>Emergency Contact</MDBCardText>
                             </MDBCol>
                             <MDBCol sm="9">
-                                <MDBCardText className="text-muted text-start">Name: {oneUser.emergencyContactName}</MDBCardText>
-                                <MDBCardText className="text-muted text-start">Phone number: {oneUser.emergencyContactPhone}</MDBCardText>
+                                <MDBCardText className="text-muted">{oneUser.emergencyContactName}</MDBCardText>
+                                <MDBCardText className="text-muted">{oneUser.emergencyContactPhone}</MDBCardText>
                             </MDBCol>
                         </MDBRow>
                         <hr />
@@ -176,7 +189,7 @@ function UserProfile(props) {
                                             fluid />
                                             <h5 className="my-3">{pet.name}</h5>
                                             <div className="d-flex justify-content-center mb-2">
-                                                <Link className='link-dark'><MDBBtn outline className="me-3" color='secondary'>Profile</MDBBtn></Link>
+                                                <Link to={`/pets/${pet._id}`} className='link-dark'><MDBBtn outline className="me-3" color='secondary'>Profile</MDBBtn></Link>
                                                 <Link className='link-dark'><MDBBtn outline className="me-3" color='secondary'>Deactivate</MDBBtn></Link>
                                             </div>
                                         </MDBCardBody>

@@ -53,3 +53,15 @@ a, Link {
   .rounded-circle {
     height: 150px;
   }
+
+  .ContactForm {
+    text-align: center;
+    max-width: 300px;
+    margin: 20px auto;
+  }
+  
+  Form {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 20px;
+  }

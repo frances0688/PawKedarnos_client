@@ -32,8 +32,7 @@ function LoginPage() {
               <MDBCol col='6' className="mb-5">
 
                   <div className="text-center">
-                    <img src="./img/PawKedarnosLogo.png"
-                      style={{width: '300px'}} alt="logo" />
+                    <img src="./img/PawKedarnosLogo.png" style={{width: '300px'}} alt="logo" />
                   </div>
 
                   <MDBTabs pills justify className='mb-3'>

@@ -31,7 +31,7 @@ function Footer() {
         </section>
 
         <div className='text-center p-3 text-muted' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
-          © 2022 Copyright:{' '}
+          Developed with &hearts; by:{' '}
         <a className='text-dark' target="_blank" rel="noreferrer" href='https://www.linkedin.com/in/frances-morales/' style={{ textDecoration: 'underline' }}>
           Frances Morales
         </a>

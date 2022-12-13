@@ -12,16 +12,23 @@ import EditUserPage from "./pages/EditUserPage";
 
 import AddPetPage from "./pages/AddPetPage";
 import PetProfile from "./pages/PetProfile";
+import EditPetPage from "./pages/EditPetPage";
 
 import IsAnon from "./components/IsAnon";
 import IsPrivate from "./components/IsPrivate";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ContactForm from "./components/ContactForm";
 
 function App() {
+
+
+
   return (
     <div className="App">
       <Navbar />
+
+      <div id="popup-root" />
 
       <Routes>
 
@@ -32,6 +39,8 @@ function App() {
         <Route path="/services" element={<ServicesPage />} />
 
         <Route path="/faq" element={<FAQ />} />
+
+        <Route path="/contact-us" element={<ContactForm />} />
 
         <Route
           path="/login"
@@ -61,7 +70,7 @@ function App() {
         />
 
         <Route
-          path="/pets"
+          path="/pets/:petId"
           element={
             <IsPrivate>
               <PetProfile />
@@ -78,14 +87,14 @@ function App() {
           }
         /> 
 
-        {/* <Route
-          path="/pets/edit"
+        <Route
+          path="/pets/:petId/edit"
           element={
             <IsPrivate>
               <EditPetPage />
             </IsPrivate>
           }
-        /> */}
+        />
 
 
       </Routes>
