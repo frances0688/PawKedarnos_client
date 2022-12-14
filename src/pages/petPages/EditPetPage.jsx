@@ -11,11 +11,11 @@ import {
     MDBBtn,
     MDBAccordion,
   } from 'mdb-react-ui-kit';
-import ProfileCard from '../components/ProfileCard';
-import AccordionItem1 from '../components/AccordionItem1';
-import AccordionItem2 from '../components/AccordionItem2';
-import AccordionItem3 from '../components/AccordionItem3';
-import AccordionItem4 from '../components/AccordionItem4';
+import ProfileCard from '../../components/ProfileCard';
+import AccordionItem1 from '../../components/AccordionItem1';
+import AccordionItem2 from '../../components/AccordionItem2';
+import AccordionItem3 from '../../components/AccordionItem3';
+import AccordionItem4 from '../../components/AccordionItem4';
 import { useEffect } from 'react';
 
 const API_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:5005"
@@ -61,7 +61,7 @@ const API_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:5005"
       .get(`${API_URL}/api/pets/${petId}`)
       .then((response) => {
           const pet = response.data
-          // Reset the state to clear the inputs
+
           setName(pet.name);
           setImgPath(pet.imgPath);
           setTypeOfPet(pet.typeOfPet);
@@ -98,7 +98,7 @@ const API_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:5005"
 
     const handleSubmit = (e) => {  
         e.preventDefault();
-    // Create an object representing the body of the PUT request
+
     const requestBody = {
       name,
       imgPath,
@@ -134,12 +134,9 @@ const API_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:5005"
     axios
     .put(`${API_URL}/api/pets/${petId}`, requestBody)
     .then((response) => {
-      // Once the request is resolved successfully and the project
-      // is updated we navigate back to the details page
       navigate(`/pets/${petId}`);
     })
     .catch((error) => {
-      // If the request resolves with an error, set the error message in the state
       const errorDescription = error.response.data.message;
       setErrorMessage(errorDescription);
     });

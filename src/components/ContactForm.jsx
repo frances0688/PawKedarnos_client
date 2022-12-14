@@ -13,12 +13,16 @@ function ContactForm () {
 
   const form = useRef();
   const navigate = useNavigate();
+  const SERVICE_ID = process.env.REACT_APP_SERVICE_ID
+  const TEMPLATE_ID = process.env.REACT_APP_TEMPLATE_ID
+  const PUBLIC_KEY = process.env.REACT_APP_PUBLIC_KEY
+
 
   const sendEmail = (e) => {
 
     e.preventDefault();
-
-    emailjs.sendForm('service_ytnsbx5', 'template_w4fy07j', form.current, 'S4b43eqGS5I5qlysk')
+    
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
       .then((result) => {
           console.log(result.text);
       }, (error) => {console.log(error.text);

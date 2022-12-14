@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
     MDBCol,
     MDBContainer,
@@ -11,12 +11,12 @@ import {
     MDBBtn,
     MDBAccordion,
   } from 'mdb-react-ui-kit';
-import { AuthContext } from '../context/auth.context';
-import ProfileCard from '../components/ProfileCard';
-import AccordionItem1 from '../components/AccordionItem1';
-import AccordionItem2 from '../components/AccordionItem2';
-import AccordionItem3 from '../components/AccordionItem3';
-import AccordionItem4 from '../components/AccordionItem4';
+import { AuthContext } from '../../context/auth.context';
+import ProfileCard from '../../components/ProfileCard';
+import AccordionItem1 from '../../components/AccordionItem1';
+import AccordionItem2 from '../../components/AccordionItem2';
+import AccordionItem3 from '../../components/AccordionItem3';
+import AccordionItem4 from '../../components/AccordionItem4';
 
   
   function AddPetPage() {
@@ -204,6 +204,9 @@ import AccordionItem4 from '../components/AccordionItem4';
                         </MDBAccordion>
                         <MDBContainer className="text-center">
                             <MDBBtn outline type="submit" className="me-3 text-center" color='secondary'>Create Pet Profile</MDBBtn>
+                            <Link to="/profile">
+                                <MDBBtn outline type="submit" className="me-3 text-center" color='secondary'>Cancel</MDBBtn>
+                            </Link>
                         </MDBContainer>
                     </MDBCardBody>
                     </MDBCard>

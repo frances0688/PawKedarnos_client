@@ -1,8 +1,8 @@
 import React, {useContext} from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { AuthContext } from '../context/auth.context';
-import ImgUploader from '../components/ImgUploader';
+import { AuthContext } from '../../context/auth.context';
+import ImgUploader from '../../components/ImgUploader';
 import { Link, useNavigate } from 'react-router-dom';
 import {
     MDBCol,

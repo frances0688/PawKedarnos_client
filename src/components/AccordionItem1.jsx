@@ -41,7 +41,7 @@ function AccordionItem1(props) {
                     wrapperTag='span' 
                     label='Dog'
                     value="dog"
-                    checked={props.typeOfPet == 'dog'}
+                    checked={props.typeOfPet === 'dog'}
                     onChange={(e) => props.setTypeOfPet(e.target.value)}
                 />
                 <MDBRadio
@@ -53,7 +53,7 @@ function AccordionItem1(props) {
                     wrapperTag='span'
                     label='Cat'
                     value="cat"
-                    checked={props.typeOfPet == 'cat'}
+                    checked={props.typeOfPet === 'cat'}
                     onChange={(e) => props.setTypeOfPet(e.target.value)}
                 />
             </MDBCol>
@@ -113,7 +113,7 @@ function AccordionItem1(props) {
                     wrapperTag='span' 
                     label='Female'
                     value="female"
-                    checked={props.gender == 'female'}
+                    checked={props.gender === 'female'}
                     onChange={(e) => props.setGender(e.target.value)}
                 />
                 <MDBRadio
@@ -125,7 +125,7 @@ function AccordionItem1(props) {
                     wrapperTag='span'
                     label='Male'
                     value="male"
-                    checked={props.gender == 'male'}
+                    checked={props.gender === 'male'}
                     onChange={(e) => props.setGender(e.target.value)}
                 />
             </MDBCol>

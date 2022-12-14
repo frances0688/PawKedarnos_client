@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { AuthContext } from '../context/auth.context';
+import { AuthContext } from '../../context/auth.context';
 import { Link } from 'react-router-dom';
 import {
     MDBCol,
@@ -15,6 +15,7 @@ import {
     MDBListGroup,
     MDBListGroupItem,
     MDBIcon,
+    MDBSwitch,
   } from 'mdb-react-ui-kit';
 
 
@@ -24,7 +25,21 @@ function UserProfile() {
     const { user } = useContext(AuthContext);
     const [oneUser, setOneUser] = useState(user);
     const [errMessage, setErrMessage] = useState(oneUser.phone === "" || oneUser.addressStreet === "" || oneUser.emergencyContactPhone === "")
-    
+    const [petErrorMessage, setPetErrorMessage] = useState(undefined);
+
+    const serviceName = {
+        boarding: "Boarding",
+        dayCare: "Day Care",
+        houseVisit: "House Visit",
+        grooming: "Grooming"
+    }
+
+    const serviceIcon = {
+        boarding: "./img/icons-pet-house2.png",
+        dayCare: "./img/icons-toys.png",
+        houseVisit: "./img/icons-doorbell.png",
+        grooming: "./img/icons-grooming.png"
+    }
 
     const getUser = () => {
       // Get the token from the localStorage
@@ -39,10 +54,23 @@ function UserProfile() {
       })
       .catch((error) => console.log(error));
     };
+
+    const deactivatePet = (pet) => {
+        console.log(pet)
+        pet.active = false
+        axios.put(`${API_URL}/api/pets/${pet._id}`, pet)
+        .then((response) => {
+            getUser();
+          })
+          .catch((error) => {
+            const errorDescription = error.response.data.message;
+            setPetErrorMessage(errorDescription);
+          });
+    }
      
     useEffect(()=> {
       getUser();
-    }, []);
+    }, [setOneUser]);
 
 
   return (
@@ -73,29 +101,38 @@ function UserProfile() {
                 <MDBCard className="mb-4 mb-lg-0">
                 <MDBCardBody className="p-0">
                     <h5 className='my-3'>Bookings</h5>
+                    <MDBCardText>Pending Confirmation</MDBCardText>
                     <MDBListGroup flush className="rounded-3">
-                    {<></>}
-                    <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                        <MDBIcon fas icon=" globe fa-lg text-warning" />
-                        <MDBCardText>booking 1</MDBCardText>
-                    </MDBListGroupItem>
-                    <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                        <MDBIcon fab icon="github fa-lg" style={{ color: '#333333' }} />
-                        <MDBCardText>booking 2</MDBCardText>
-                    </MDBListGroupItem>
-                    <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                        <MDBIcon fab icon="twitter fa-lg" style={{ color: '#55acee' }} />
-                        <MDBCardText>booking 3</MDBCardText>
-                    </MDBListGroupItem>
-                    <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                        <MDBIcon fab icon="instagram fa-lg" style={{ color: '#ac2bac' }} />
-                        <MDBCardText>booking 4</MDBCardText>
-                    </MDBListGroupItem>
-                    <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                        <MDBIcon fab icon="facebook fa-lg" style={{ color: '#3b5998' }} />
-                        <MDBCardText>booking 5</MDBCardText>
-                    </MDBListGroupItem>
+                    {oneUser.request && oneUser.request.map((oneRequest) => {
+                        // console.log(oneRequest)
+                        if (!oneRequest.isDeclined){
+                            return(
+                                <Link to="" >
+                                <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
+                                    <MDBCardImage 
+                                    alt="avatar" 
+                                    className="rounded-circle me-1" 
+                                    style={{height: '4vw', width: '4vw'}}
+                                    src={serviceIcon[oneRequest.service]} 
+                                    fluid 
+                                    />
+                                        <MDBCardText>{serviceName[oneRequest.service]}</MDBCardText>
+                                    
+                                    <hr className="my-3" />
+                                    <MDBRow >
+                                        <a href="#!">
+                                            <MDBCardImage  src={oneRequest.pet.imgPath} alt="avatar" className="rounded-circle me-1" fluid style={{height: '3vw', width: '3vw'}}/>
+                                        </a>
+                                    </MDBRow>
+                                </MDBListGroupItem>
+                                </Link>
+
+                            );
+                        }
+                    })} 
+        
                     </MDBListGroup>
+                    <Link to={`/users/${oneUser._id}/requests/add`}className='link-dark'><MDBBtn outline className="me-3" color='secondary'>Request Booking</MDBBtn></Link>
                 </MDBCardBody>
                 </MDBCard>
 
@@ -181,18 +218,29 @@ function UserProfile() {
                                 <MDBCol key="pet._id" md="4" className='mb-3'>
                                 <MDBCard className="mb-4 mb-md-0">
                                     <MDBCardBody>
-                                        <MDBCardImage
-                                            src={pet.imgPath}
-                                            alt="user picture"
-                                            className="rounded-circle"
-                                            style={{ width: '150px' }}
-                                            fluid />
-                                            <h5 className="my-3">{pet.name}</h5>
-                                            <div className="d-flex justify-content-center mb-2">
-                                                <Link to={`/pets/${pet._id}`} className='link-dark'><MDBBtn outline className="me-3" color='secondary'>Profile</MDBBtn></Link>
-                                                <Link className='link-dark'><MDBBtn outline className="me-3" color='secondary'>Deactivate</MDBBtn></Link>
-                                            </div>
-                                        </MDBCardBody>
+                                        <MDBRow className='text-end mb-4'>
+                                            <MDBCol>
+                                                <span>Deactivate</span>
+                                            </MDBCol>
+                                            <MDBCol>
+                                                <MDBSwitch 
+                                                name="isActive"
+                                                checked={pet.active === true}
+                                                onChange={()=>deactivatePet(pet)}
+                                                // label='Hide' 
+                                                />
+                                            </MDBCol>
+                                        </MDBRow>
+                                        <Link to={`/pets/${pet._id}`} className='link-dark'>
+                                            <MDBCardImage
+                                                src={pet.imgPath}
+                                                alt="user picture"
+                                                className="rounded-circle"
+                                                style={{ width: '150px' }}
+                                                fluid />
+                                            <h5 className="mt-3">{pet.name}</h5>
+                                        </Link>
+                                    </MDBCardBody>
                                 </MDBCard>
                             </MDBCol>
                         );

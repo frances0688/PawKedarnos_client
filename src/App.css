@@ -65,3 +65,17 @@ a, Link {
     border-radius: 10px;
     padding: 20px;
   }
+
+  .StepButton-d10-0-2-38.active:hover {
+    background-color: rgb(168, 169, 157) !important;
+  }
+
+  .StepButton-d12-0-2-42.completed {
+    background-color: rgb(161, 3, 8);
+}
+
+  
+  .StepButton-d10-0-2-38.active,
+  .StepButton-d12-0-2-42.active {
+    background-color: rgb(131, 137, 88) !important;
+}
