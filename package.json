@@ -13,8 +13,11 @@
     "react-form-stepper": "^2.0.3",
     "react-router-dom": "^6.4.4",
     "react-scripts": "^5.0.1",
-    "react-step-wizard": "^5.3.11"
+    "react-step-wizard": "^5.3.11",
+    "@emailjs/browser": "^3.10.0",
+    "reactjs-popup": "^2.0.5"
   },
+  
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && echo '/* /index.html 200' | cat >build/_redirects",
