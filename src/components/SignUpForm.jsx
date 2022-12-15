@@ -52,11 +52,11 @@ function SignUpForm({setLoginRegisterActive}) {
 
             <p>Create your account</p> 
            
-            <MDBInput className='mb-4' id='signUpFormName' label='Name' name="name" value={name} onChange={handleName} />
-            <MDBInput className='mb-4' id='signUpFormLastname' label='Last Name' name="lastname" value={lastname} onChange={handleLastname} />
-            <MDBInput className='mb-4' type='date' id='signUpFormDob' label='Date of Birth' name="dob" value={dob} onChange={handleDob} />
-            <MDBInput className='mb-4' type='email' id='signUpFormEmail' label='Email address' name="email" value={email} onChange={handleEmail} />
-            <MDBInput className='mb-4' type='password' id='signUpFormPassword' label='Password' name="password" value={password} onChange={handlePassword} />
+            <MDBInput className='mb-4' id='signUpFormName' label='Name' name="name" value={name} onChange={handleName} style={{background: '#FBFBFB'}}/>
+            <MDBInput className='mb-4' id='signUpFormLastname' label='Last Name' name="lastname" value={lastname} onChange={handleLastname} style={{background: '#FBFBFB'}}/>
+            <MDBInput className='mb-4' type='date' id='signUpFormDob' label='Date of Birth' name="dob" value={dob} onChange={handleDob} style={{background: '#FBFBFB'}}/>
+            <MDBInput className='mb-4' type='email' id='signUpFormEmail' label='Email address' name="email" value={email} onChange={handleEmail} style={{background: '#FBFBFB'}}/>
+            <MDBInput className='mb-4' type='password' id='signUpFormPassword' label='Password' name="password" value={password} onChange={handlePassword} style={{background: '#FBFBFB'}}/>
             {/* <MDBInput className='mb-4' type='password' id='form8Example5' label='Repeat password' /> */}
 
             <MDBBtn type='submit' className='gradient-custom-2 mb-3' block>

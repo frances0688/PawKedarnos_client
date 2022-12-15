@@ -50,8 +50,8 @@ function LoginForm() {
 
           <p>Please login to your account</p>
 
-          <MDBInput className='mb-4' type='email' id='form7Example1' name="email" value={email} onChange={handleEmail} label='Email address' />
-          <MDBInput className='mb-4' type='password' id='form7Example2' name="password" value={password} onChange={handlePassword} label='Password' />
+          <MDBInput className='mb-4' type='email' id='form7Example1' name="email" value={email} onChange={handleEmail} label='Email address' style={{background: '#FBFBFB'}}/>
+          <MDBInput className='mb-4' type='password' id='form7Example2' name="password" value={password} onChange={handlePassword} label='Password' style={{background: '#FBFBFB'}}/>
 
           <MDBBtn type='submit' className='gradient-custom-2 mb-3' block>
             Login

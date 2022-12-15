@@ -73,7 +73,7 @@ function HomePage() {
                   Owned by a veterinary technician, we are able to offer medical/wellness services for any animal that may require them. 
                 </h4>
                 <Link to="/about" >
-                    <MDBBtn className='my-5' type='button' style={{ backgroundColor: '#D3BC8D' }} >
+                    <MDBBtn className='my-5' type='button' style={{ backgroundColor: '#9eb08c' }} >
                       <h6 style={{ marginBottom: "0" }}>Meet the Team</h6>
                     </MDBBtn>
                 </Link>
@@ -85,7 +85,7 @@ function HomePage() {
                   <MDBCol md="3">
                     <MDBContainer cascade className="my-3">
                       <MDBCardBody cascade className="text-center">
-                          <Link to="">
+                          <Link to="/services#boarding">
                             <MDBCardImage
                               src="./img/icons-pet-house2.png"
                               alt="Boarding Icon"
@@ -102,7 +102,7 @@ function HomePage() {
                   <MDBCol md="3">
                     <MDBContainer cascade className="my-3">
                       <MDBCardBody cascade className="text-center">
-                          <Link to="">
+                          <Link to="/services#dayCare">
                             <MDBCardImage
                               src="./img/icons-toys.png"
                               alt="Day Care Icon"
@@ -119,7 +119,7 @@ function HomePage() {
                   <MDBCol md="3">
                     <MDBContainer cascade className="my-3">
                       <MDBCardBody cascade className="text-center">
-                          <Link to="">
+                          <Link to="/services#houseVisit">
                             <MDBCardImage
                               src="./img/icons-doorbell.png"
                               alt="House Visit Icon"
@@ -127,7 +127,7 @@ function HomePage() {
                               fluid 
                               />
                             <MDBCardTitle>
-                              House Visit
+                              House Visits
                             </MDBCardTitle>
                           </Link>
                       </MDBCardBody>
@@ -136,7 +136,7 @@ function HomePage() {
                   <MDBCol md="3">
                     <MDBContainer cascade className="my-3">
                       <MDBCardBody cascade className="text-center">
-                          <Link to="">
+                          <Link to="/services#grooming">
                             <MDBCardImage
                               src="./img/icons-grooming.png"
                               alt="Grooming Icon"
@@ -151,7 +151,7 @@ function HomePage() {
                     </MDBContainer>
                   </MDBCol>
                 </MDBRow>
-                  <MDBBtn className='my-5' type='button' style={{ backgroundColor: '#D3BC8D' }} >
+                  <MDBBtn className='my-5' type='button' style={{ backgroundColor: '#9eb08c' }} >
                     <h6 style={{ marginBottom: "0" }} >Details and Prices</h6>
                   </MDBBtn>
               </MDBCol>

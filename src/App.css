@@ -5,8 +5,13 @@
 }
 
 .nav-pills .nav-link.active {
-  background-color: #b89b8e;
+  background-color: #D3BC8D;
   color: rgba(0,0,0,.55)
+}
+
+.nav-pills .nav-link {
+  background: #FBFBFB;
+  color: rgba(0,0,0,.55);
 }
 
 .overlay { 
@@ -34,8 +39,8 @@ a, Link {
 
 .gradient-custom-2 {
   background: #d8c2a8;
-  background: -webkit-linear-gradient(to right, #d6bcb0, #d8c2a8, #b7b9ae, #B2A8A2);
-  background: linear-gradient(to right, #d6bcb0, #d8c2a8, #b7b9ae, #B2A8A2);
+  background: -webkit-linear-gradient(to right, #D3BC8D, #d8c2a8, #b7b9ae, #9eb08c);
+  background: linear-gradient(to right, #D3BC8D, #d8c2a8, #b7b9ae, #9eb08c);
   }
   
   @media (min-width: 768px) {
@@ -66,16 +71,28 @@ a, Link {
     padding: 20px;
   }
 
-  .StepButton-d10-0-2-38.active:hover {
+  .StepButton-d0-0-2-6.active,
+  .StepButton-d2-0-2-12.active,
+  .StepButton-d4-0-2-20.active,
+  .StepButton-d6-0-2-26.active,
+  .StepButton-d6-0-2-26.active {
+    background-color: rgb(131, 137, 88) !important;
+  }
+
+  .StepButton-d0-0-2-6.active:hover,
+  .StepButton-d2-0-2-12.active:hover,
+  .StepButton-d4-0-2-20.active:hover,
+  .StepButton-d6-0-2-26.active:hover,
+  .StepButton-d6-0-2-26.active:hover {
     background-color: rgb(168, 169, 157) !important;
   }
 
-  .StepButton-d12-0-2-42.completed {
-    background-color: rgb(161, 3, 8);
+  .StepButton-d0-0-2-6.completed,
+  .StepButton-d2-0-2-12.completed,
+  .StepButton-d4-0-2-20.completed,
+  .StepButton-d6-0-2-26.completed,
+  .StepButton-d6-0-2-26.completed {
+    background-color: #D3BC8D !important;
 }
 
   
-  .StepButton-d10-0-2-38.active,
-  .StepButton-d12-0-2-42.active {
-    background-color: rgb(131, 137, 88) !important;
-}

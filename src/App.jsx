@@ -24,7 +24,14 @@ import ContactForm from "./components/ContactForm";
 import EmailSentPage from "./pages/generalPages/EmailSentPage";
 
 function App() {
-
+// Cross-Origin Resource Sharing
+ 
+App.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true
+  })
+);
 
 
   return (

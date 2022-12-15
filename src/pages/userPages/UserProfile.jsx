@@ -14,8 +14,14 @@ import {
     MDBBtn,
     MDBListGroup,
     MDBListGroupItem,
-    MDBIcon,
     MDBSwitch,
+    // MDBModal,
+    // MDBModalDialog,
+    // MDBModalContent,
+    // MDBModalHeader,
+    // MDBModalTitle,
+    // MDBModalBody,
+    // MDBModalFooter,
   } from 'mdb-react-ui-kit';
 
 
@@ -25,7 +31,9 @@ function UserProfile() {
     const { user } = useContext(AuthContext);
     const [oneUser, setOneUser] = useState(user);
     const [errMessage, setErrMessage] = useState(oneUser.phone === "" || oneUser.addressStreet === "" || oneUser.emergencyContactPhone === "")
-    const [petErrorMessage, setPetErrorMessage] = useState(undefined);
+    const [setPetErrorMessage] = useState(undefined);
+    // const [requestInfo, setRequestInfo] = useState(false);
+    // const toggleShow = () => setRequestInfo(!requestInfo);
 
     const serviceName = {
         boarding: "Boarding",
@@ -40,7 +48,7 @@ function UserProfile() {
         houseVisit: "./img/icons-doorbell.png",
         grooming: "./img/icons-grooming.png"
     }
-
+oneUser && console.log(oneUser)
     const getUser = () => {
       // Get the token from the localStorage
       const storedToken = localStorage.getItem('authToken');
@@ -56,7 +64,6 @@ function UserProfile() {
     };
 
     const deactivatePet = (pet) => {
-        console.log(pet)
         pet.active = false
         axios.put(`${API_URL}/api/pets/${pet._id}`, pet)
         .then((response) => {
@@ -92,47 +99,62 @@ function UserProfile() {
                     fluid />
                     <h5 className="my-3">{oneUser.name} {oneUser.lastname}</h5>
                     <div className="d-flex justify-content-center mb-2">
-                        <Link to="/profile/edit" className='link-dark'><MDBBtn outline className="me-3" color='secondary'>Edit Profile</MDBBtn></Link>
-                        <Link to="/pets/add" className='link-dark'><MDBBtn outline className="me-3" color='secondary'>Add Pet</MDBBtn></Link>
+                        <Link to="/profile/edit" className='link-dark'><MDBBtn className='me-3' type='button' style={{ backgroundColor: '#9eb08c' }} >Edit Profile</MDBBtn></Link>
+                        <Link to="/pets/add" className='link-dark'><MDBBtn className='me-3' type='button' style={{ backgroundColor: '#9eb08c' }}>Add Pet</MDBBtn></Link>
                     </div>
                 </MDBCardBody>
                 </MDBCard>
 
                 <MDBCard className="mb-4 mb-lg-0">
-                <MDBCardBody className="p-0">
-                    <h5 className='my-3'>Bookings</h5>
+                <MDBCardBody className="mb-2 p-0">
+                    <h4 className='m-3'>Bookings</h4>
                     <MDBCardText>Pending Confirmation</MDBCardText>
                     <MDBListGroup flush className="rounded-3">
                     {oneUser.request && oneUser.request.map((oneRequest) => {
-                        // console.log(oneRequest)
                         if (!oneRequest.isDeclined){
                             return(
-                                <Link to="" >
-                                <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                                    <MDBCardImage 
-                                    alt="avatar" 
-                                    className="rounded-circle me-1" 
-                                    style={{height: '4vw', width: '4vw'}}
-                                    src={serviceIcon[oneRequest.service]} 
-                                    fluid 
-                                    />
-                                        <MDBCardText>{serviceName[oneRequest.service]}</MDBCardText>
-                                    
-                                    <hr className="my-3" />
-                                    <MDBRow >
-                                        <a href="#!">
-                                            <MDBCardImage  src={oneRequest.pet.imgPath} alt="avatar" className="rounded-circle me-1" fluid style={{height: '3vw', width: '3vw'}}/>
-                                        </a>
-                                    </MDBRow>
-                                </MDBListGroupItem>
-                                </Link>
+                                // <a onClick={toggleShow}>
+                                    <MDBListGroupItem className="d-flex text-start align-items-center p-3">
+                                        <MDBCol >
+                                            <MDBCardImage 
+                                                alt="avatar" 
+                                                className="rounded-circle me-1" 
+                                                style={{height: '4vw', width: '4vw'}}
+                                                src={serviceIcon[oneRequest.service]} 
+                                                fluid 
+                                            />
+                                            <span><strong>{serviceName[oneRequest.service]}</strong></span>
+                                        </MDBCol>
+                                        
+                                        <MDBRow>
+                                            <MDBCardText><span>{(new Date(oneRequest.startDateTime)).toLocaleDateString()}</span> {oneRequest.endDateTime &&(<span> - {(new Date(oneRequest.endDateTime)).toLocaleDateString()}</span>)}</MDBCardText>
+                                            {/* <MDBModal show={requestInfo} setShow={setRequestInfo} tabIndex='-1'>
+                                                <MDBModalDialog>
+                                                <MDBModalContent>
+                                                    <MDBModalHeader>
+                                                    <MDBModalTitle>{serviceName[oneRequest.service]}</MDBModalTitle>
+                                                    </MDBModalHeader>
+                                                    <MDBModalBody>Summary. status, and price: COMING SOON!</MDBModalBody>
+
+                                                    <MDBModalFooter>
+                                                    <MDBBtn className='mb-5' type='button' style={{ backgroundColor: '#9eb08c' }} onClick={toggleShow}>
+                                                        Close
+                                                    </MDBBtn>
+                                                    </MDBModalFooter>
+                                                </MDBModalContent>
+                                                </MDBModalDialog>
+                                            </MDBModal> */}
+                                        </MDBRow>
+                                    </MDBListGroupItem>
+                                // </a>
 
                             );
                         }
+                        return null
                     })} 
         
                     </MDBListGroup>
-                    <Link to={`/users/${oneUser._id}/requests/add`}className='link-dark'><MDBBtn outline className="me-3" color='secondary'>Request Booking</MDBBtn></Link>
+                    <Link to={`/users/${oneUser._id}/requests/add`}className='link-dark'><MDBBtn className='m-3' type='button' style={{ backgroundColor: '#9eb08c' }}>Request Booking</MDBBtn></Link>
                 </MDBCardBody>
                 </MDBCard>
 
