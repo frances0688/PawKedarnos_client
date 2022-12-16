@@ -58,7 +58,7 @@ function HomePage() {
               <MDBCol md="12" className="mt-4">
                 <MDBCardImage
                   src="./img/PawKedarnosLogo.png"
-                  alt="Boarding Icon"
+                  alt="logo"
                   style={{ width: '350px' }}
                   className="my-5"
                   fluid 

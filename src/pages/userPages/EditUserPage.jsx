@@ -191,11 +191,11 @@ function EditUserPage() {
                         </MDBRow>
                         <hr />
                           <div className='text-center'>
-                            <MDBBtn outline type="submit" className="me-3" color='secondary'>
+                            <MDBBtn type="submit" className='mx-3' style={{ backgroundColor: '#9eb08c' }}>
                                 Save
                             </MDBBtn>
                             <Link to="/profile">
-                              <MDBBtn outline className="me-3" color='secondary'>
+                              <MDBBtn className='me-3' type='button' style={{ backgroundColor: '#9eb08c' }}>
                                   Cancel
                               </MDBBtn>
                             </Link>

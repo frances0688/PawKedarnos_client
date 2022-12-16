@@ -26,12 +26,6 @@
   text-align:center;
 }
 
-.me-5,
-.me-3,
-.me-2 {
-  margin: 0 !important;
-}
-
 a, Link {
   color:inherit;
   text-decoration: none;
@@ -56,7 +50,7 @@ a, Link {
   }
 
   .rounded-circle {
-    height: 150px;
+    height: 200px;
   }
 
   .ContactForm {
@@ -71,11 +65,23 @@ a, Link {
     padding: 20px;
   }
 
+  span {
+    padding-left: 0 !important;
+  }
+
+  .StepButton-d0-0-2-6,
+  .StepButton-d2-0-2-12,
+  .StepButton-d4-0-2-20,
+  .StepButton-d6-0-2-26,
+  .StepButton-d8-0-2-32 {
+    background-color: rgb(186,187,177) !important;
+  }
+  
   .StepButton-d0-0-2-6.active,
   .StepButton-d2-0-2-12.active,
   .StepButton-d4-0-2-20.active,
   .StepButton-d6-0-2-26.active,
-  .StepButton-d6-0-2-26.active {
+  .StepButton-d8-0-2-32.active {
     background-color: rgb(131, 137, 88) !important;
   }
 
@@ -83,7 +89,7 @@ a, Link {
   .StepButton-d2-0-2-12.active:hover,
   .StepButton-d4-0-2-20.active:hover,
   .StepButton-d6-0-2-26.active:hover,
-  .StepButton-d6-0-2-26.active:hover {
+  .StepButton-d8-0-2-32.active:hover {
     background-color: rgb(168, 169, 157) !important;
   }
 
@@ -91,7 +97,7 @@ a, Link {
   .StepButton-d2-0-2-12.completed,
   .StepButton-d4-0-2-20.completed,
   .StepButton-d6-0-2-26.completed,
-  .StepButton-d6-0-2-26.completed {
+  .StepButton-d8-0-2-32.completed {
     background-color: #D3BC8D !important;
 }
 

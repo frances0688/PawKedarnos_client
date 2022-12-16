@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
-import { MDBContainer } from 'mdb-react-ui-kit';
+import { MDBCol, MDBContainer } from 'mdb-react-ui-kit';
 import StepWizard from "react-step-wizard";
 import { Stepper, Step } from "react-form-stepper";
 import StepOne from '../../components/StepperComponents/StepOne';
@@ -75,25 +75,27 @@ function AddRequestPage() {
       };
 
   return (
-    <MDBContainer>
-      <h1>Request A Service Booking</h1>
-      <Stepper activeStep={activeStep} >
-        <Step style={{backgroundColor: "rgb(186,187,177)"}} label="Service" />
-        <Step style={{backgroundColor: "rgb(186,187,177)"}} label="Pet" />
-        <Step style={{backgroundColor: "rgb(186,187,177)"}} label="Date" />
-        <Step style={{backgroundColor: "rgb(186,187,177)"}} label="Price" />
-        <Step style={{backgroundColor: "rgb(186,187,177)"}} label="Submit" />
-      </Stepper>
+    <MDBContainer className="py-5 h-100">
+      <MDBCol className='p-5' style={{backgroundColor: "#fff"}}>
+        <h1>Request A Service Booking</h1>
+        <Stepper activeStep={activeStep} >
+          <Step label="Service" />
+          <Step label="Pet" />
+          <Step label="Date" />
+          {/* <Step label="Price" /> */}
+          <Step label="Submit" />
+        </Stepper>
 
-    <form onSubmit={handleSubmit}>
-      <StepWizard instance={assignStepWizard} onStepChange={handleStepChange}>
-        <StepOne service={service} setService={setService}/>
-        <StepTwo allPets={allPets} pet={pet} setPet={setPet}/>
-        <StepThree startDateTime={startDateTime} setStartDateTime={setStartDateTime} endDateTime={endDateTime} setEndDateTime={setEndDateTime} />
-        <StepFour />
-        <StepFive  />
-      </StepWizard>
-    </form>
+        <form className='p-4 rounded-top' style={{backgroundColor: '#f8f9fa'}} onSubmit={handleSubmit}>
+          <StepWizard instance={assignStepWizard} onStepChange={handleStepChange}>
+            <StepOne service={service} setService={setService}/>
+            <StepTwo allPets={allPets} pet={pet} setPet={setPet}/>
+            <StepThree service={service} startDateTime={startDateTime} setStartDateTime={setStartDateTime} endDateTime={endDateTime} setEndDateTime={setEndDateTime} />
+            {/* <StepFour /> */}
+            <StepFive  />
+          </StepWizard>
+        </form>
+      </MDBCol>
     
      
     </MDBContainer>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 function AboutPage() {
   return (
-    <MDBContainer className="gradient-custom-2 pt-5" style={{ backgroundColor: '#9de2ff' }}>
+    <MDBContainer className="gradient-custom-2 pt-5">
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">
           <MDBCol lg="9" xl="10">

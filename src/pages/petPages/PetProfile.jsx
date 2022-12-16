@@ -43,29 +43,31 @@ function PetProfile() {
     <MDBContainer className="py-5">
     {pet && (
         <MDBRow>
-            <MDBCol lg="4">
-            <MDBCard className="mb-4">
-              <MDBCardBody className="text-center">
-                  <MDBCardImage
-                      id="upload_widget"
-                      src={pet.imgPath}
-                      alt="pet picture"
-                      className="rounded-circle my-3"
-                      style={{ width: '150px' }}
-                      fluid 
-                  />
-                  <h3 className="mb-3">{pet.name}</h3>
-                  <p class="text-muted mb-1">{pet.breed}</p>
-                  <p class="text-muted mb-1">{pet.gender} {pet.typeOfPet}</p>
-                  <p class="text-muted mb-3">{pet.ageYears} years and {pet.ageMonths} months old</p>
-                  <div className="d-flex justify-content-center mb-2">
-                        <Link to={`/pets/${petId}/edit`} className='link-dark'><MDBBtn outline className="me-3" color='secondary'>Edit Profile</MDBBtn></Link>
-                        <Link to="/profile" className='link-dark'><MDBBtn outline className="me-3" color='secondary'>Back to Profile</MDBBtn></Link>
-                  </div>
-              </MDBCardBody>
-            </MDBCard>
+            <MDBCol lg="5">
+                <MDBCard className="mb-4 gradient-custom-2">
+                    <MDBCol className="m-4"  style={{ backgroundColor: '#fff'}}>
+                        <MDBCardBody className="text-center">
+                            <MDBCardImage
+                                id="upload_widget"
+                                src={pet.imgPath}
+                                alt="pet picture"
+                                className="rounded-circle my-3"
+                                style={{ width: '200px' }}
+                                fluid 
+                            />
+                            <h3 className="mb-3">{pet.name}</h3>
+                            <p class="text-muted mb-1">{pet.breed}</p>
+                            <p class="text-muted mb-1">{pet.gender} {pet.typeOfPet}</p>
+                            <p class="text-muted mb-3">{pet.ageYears} years and {pet.ageMonths} months old</p>
+                            <div className="d-flex justify-content-center mb-2">
+                                    <Link to={`/pets/${petId}/edit`} className='link-dark'><MDBBtn className='mx-3 text-center' style={{ backgroundColor: '#9eb08c' }}>Edit Profile</MDBBtn></Link>
+                                    <Link to="/profile" className='link-dark'><MDBBtn className='me-3 text-center' style={{ backgroundColor: '#9eb08c' }}>Back to Profile</MDBBtn></Link>
+                            </div>
+                        </MDBCardBody>
+                    </MDBCol>
+                </MDBCard>
             </MDBCol>
-            <MDBCol lg="8">
+            <MDBCol lg="7">
                 <MDBCard className="mb-4">
                   <MDBCardBody className="text-start">
                     <MDBAccordion className="mb-4" initialActive={1}>

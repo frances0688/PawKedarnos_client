@@ -15,13 +15,13 @@ import {
     MDBListGroup,
     MDBListGroupItem,
     MDBSwitch,
-    // MDBModal,
-    // MDBModalDialog,
-    // MDBModalContent,
-    // MDBModalHeader,
-    // MDBModalTitle,
-    // MDBModalBody,
-    // MDBModalFooter,
+    MDBModal,
+    MDBModalDialog,
+    MDBModalContent,
+    MDBModalHeader,
+    MDBModalTitle,
+    MDBModalBody,
+    MDBModalFooter,
   } from 'mdb-react-ui-kit';
 
 
@@ -32,8 +32,9 @@ function UserProfile() {
     const [oneUser, setOneUser] = useState(user);
     const [errMessage, setErrMessage] = useState(oneUser.phone === "" || oneUser.addressStreet === "" || oneUser.emergencyContactPhone === "")
     const [setPetErrorMessage] = useState(undefined);
-    // const [requestInfo, setRequestInfo] = useState(false);
-    // const toggleShow = () => setRequestInfo(!requestInfo);
+    
+    const [requestInfo, setRequestInfo] = useState(false);
+    const toggleShow = () => setRequestInfo(!requestInfo);
 
     const serviceName = {
         boarding: "Boarding",
@@ -87,22 +88,25 @@ oneUser && console.log(oneUser)
         <section className="UserProfile">
         <MDBContainer className="py-5">
             <MDBRow>
-            <MDBCol lg="4">
+            <MDBCol lg="5">
                 
-                <MDBCard className="mb-4">
-                <MDBCardBody className="text-center">
-                    <MDBCardImage
-                    src={oneUser.imgPath}
-                    alt="user picture"
-                    className="rounded-circle"
-                    style={{ width: '150px' }}
-                    fluid />
-                    <h5 className="my-3">{oneUser.name} {oneUser.lastname}</h5>
-                    <div className="d-flex justify-content-center mb-2">
-                        <Link to="/profile/edit" className='link-dark'><MDBBtn className='me-3' type='button' style={{ backgroundColor: '#9eb08c' }} >Edit Profile</MDBBtn></Link>
-                        <Link to="/pets/add" className='link-dark'><MDBBtn className='me-3' type='button' style={{ backgroundColor: '#9eb08c' }}>Add Pet</MDBBtn></Link>
-                    </div>
-                </MDBCardBody>
+                <MDBCard className="mb-4 gradient-custom-2">
+                    <MDBCol className="m-4"  style={{ backgroundColor: '#fff'}}>
+                        <MDBCardBody className="text-center">
+                            <MDBCardImage
+                            src={oneUser.imgPath}
+                            alt="user picture"
+                            className="rounded-circle"
+                            style={{ width: '200px' }}
+                            fluid />
+                            <h5 className="my-3">{oneUser.name} {oneUser.lastname}</h5>
+                            <div className="d-flex justify-content-center mb-2">
+                                <Link to="/profile/edit" className='link-dark'><MDBBtn className='mx-3' type='button' style={{ backgroundColor: '#9eb08c' }} >Edit Profile</MDBBtn></Link>
+                                <Link to="/pets/add" className='link-dark'><MDBBtn className='mx-3' type='button' style={{ backgroundColor: '#9eb08c' }}>Add Pet</MDBBtn></Link>
+                                <Link to={`/users/${oneUser._id}/requests/add`}className='link-dark'><MDBBtn className='mx-3' type='button' style={{ backgroundColor: '#9eb08c' }}>Request Booking</MDBBtn></Link>
+                            </div>
+                        </MDBCardBody>
+                    </MDBCol>
                 </MDBCard>
 
                 <MDBCard className="mb-4 mb-lg-0">
@@ -113,7 +117,7 @@ oneUser && console.log(oneUser)
                     {oneUser.request && oneUser.request.map((oneRequest) => {
                         if (!oneRequest.isDeclined){
                             return(
-                                // <a onClick={toggleShow}>
+                                <a onClick={toggleShow}>
                                     <MDBListGroupItem className="d-flex text-start align-items-center p-3">
                                         <MDBCol >
                                             <MDBCardImage 
@@ -128,7 +132,7 @@ oneUser && console.log(oneUser)
                                         
                                         <MDBRow>
                                             <MDBCardText><span>{(new Date(oneRequest.startDateTime)).toLocaleDateString()}</span> {oneRequest.endDateTime &&(<span> - {(new Date(oneRequest.endDateTime)).toLocaleDateString()}</span>)}</MDBCardText>
-                                            {/* <MDBModal show={requestInfo} setShow={setRequestInfo} tabIndex='-1'>
+                                            <MDBModal show={requestInfo} setShow={setRequestInfo} tabIndex='-1'>
                                                 <MDBModalDialog>
                                                 <MDBModalContent>
                                                     <MDBModalHeader>
@@ -143,10 +147,10 @@ oneUser && console.log(oneUser)
                                                     </MDBModalFooter>
                                                 </MDBModalContent>
                                                 </MDBModalDialog>
-                                            </MDBModal> */}
+                                            </MDBModal>
                                         </MDBRow>
                                     </MDBListGroupItem>
-                                // </a>
+                                </a>
 
                             );
                         }
@@ -154,12 +158,11 @@ oneUser && console.log(oneUser)
                     })} 
         
                     </MDBListGroup>
-                    <Link to={`/users/${oneUser._id}/requests/add`}className='link-dark'><MDBBtn className='m-3' type='button' style={{ backgroundColor: '#9eb08c' }}>Request Booking</MDBBtn></Link>
                 </MDBCardBody>
                 </MDBCard>
 
             </MDBCol>
-            <MDBCol lg="8">
+            <MDBCol lg="7">
                 <MDBCard className="mb-4">
                     <MDBCardBody>
                         <MDBRow>
@@ -249,7 +252,6 @@ oneUser && console.log(oneUser)
                                                 name="isActive"
                                                 checked={pet.active === true}
                                                 onChange={()=>deactivatePet(pet)}
-                                                // label='Hide' 
                                                 />
                                             </MDBCol>
                                         </MDBRow>
@@ -258,7 +260,7 @@ oneUser && console.log(oneUser)
                                                 src={pet.imgPath}
                                                 alt="user picture"
                                                 className="rounded-circle"
-                                                style={{ width: '150px' }}
+                                                style={{ width: '200px' }}
                                                 fluid />
                                             <h5 className="mt-3">{pet.name}</h5>
                                         </Link>

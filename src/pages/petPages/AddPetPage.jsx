@@ -203,9 +203,9 @@ import AccordionItem4 from '../../components/AccordionItem4';
                             />
                         </MDBAccordion>
                         <MDBContainer className="text-center">
-                            <MDBBtn outline type="submit" className="me-3 text-center" color='secondary'>Create Pet Profile</MDBBtn>
+                            <MDBBtn type="submit" className='me-3 text-center' style={{ backgroundColor: '#9eb08c' }}>Create Pet Profile</MDBBtn>
                             <Link to="/profile">
-                                <MDBBtn outline type="submit" className="me-3 text-center" color='secondary'>Cancel</MDBBtn>
+                                <MDBBtn type="submit" className='me-3 text-center' style={{ backgroundColor: '#9eb08c' }}>Cancel</MDBBtn>
                             </Link>
                         </MDBContainer>
                     </MDBCardBody>

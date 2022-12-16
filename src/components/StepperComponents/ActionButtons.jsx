@@ -18,15 +18,15 @@ function ActionButtons(props) {
         <MDBRow className='py-5'>
           {props.currentStep > 1 && (
             <MDBCol>
-              <MDBBtn onClick={handleBack}>Back</MDBBtn>
+              <MDBBtn style={{ backgroundColor: '#9eb08c' }} onClick={handleBack}>Back</MDBBtn>
             </MDBCol>
           )}
           <MDBCol>
             {props.currentStep < props.totalSteps && (
-              <MDBBtn onClick={handleNext}>Next</MDBBtn>
+              <MDBBtn style={{ backgroundColor: '#9eb08c' }} onClick={handleNext}>Next</MDBBtn>
             )}
             {props.currentStep === props.totalSteps && (
-              <MDBBtn type='submit'>Send Request</MDBBtn>
+              <MDBBtn style={{ backgroundColor: '#9eb08c' }} type='submit'>Send Request</MDBBtn>
             )}
           </MDBCol>
         </MDBRow>

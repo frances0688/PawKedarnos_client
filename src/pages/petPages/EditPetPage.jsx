@@ -222,11 +222,11 @@ const API_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:5005"
                             />
                         </MDBAccordion>
                           <div className='text-center'>
-                            <MDBBtn outline type="submit" className="me-3" color='secondary'>
+                            <MDBBtn type="submit" className='me-3 text-center' style={{ backgroundColor: '#9eb08c' }}>
                                 Save
                             </MDBBtn>
                             <Link to={`/pets/${petId}`}>
-                              <MDBBtn outline className="me-3" color='secondary'>
+                              <MDBBtn className='me-3 text-center' style={{ backgroundColor: '#9eb08c' }}>
                                   Cancel
                               </MDBBtn>
                             </Link>
