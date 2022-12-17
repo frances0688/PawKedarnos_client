@@ -39,7 +39,7 @@ function ServicesPage() {
                           src="./img/KarenCat3.jpeg"
                           alt="cat"
                           className="w-100 rounded-3 mt-2 mb-3 img-thumbnail"
-                          style={{ width: '40vw' }}
+                          // style={{ width: '40vw' }}
                         />
                         <h3 style={{textDecoration: "underline"}}>Boarding</h3>
                         <i>Location: Pet Sitter’s home</i>
@@ -82,7 +82,7 @@ function ServicesPage() {
                           src="./img/KarenDog4.jpeg"
                           alt="dog playing"
                           className="w-100 rounded-3 mt-2 mb-3 img-thumbnail"
-                          style={{ width: '40vw' }}
+                          // style={{ width: '40vw' }}
                         />
                         <h3 style={{textDecoration: "underline"}}>Day Care</h3>
                         <i>Location: Pet Sitter’s home</i>
@@ -124,7 +124,7 @@ function ServicesPage() {
                           src="./img/KarenCat5.jpeg"
                           alt="cat"
                           className="w-100 rounded-3 mt-2 mb-3 img-thumbnail"
-                          style={{ width: '40vw' }}
+                          // style={{ width: '40vw' }}
                         />
                         <h3 style={{textDecoration: "underline"}}>House Visits</h3>
                         <i>Location: Address provided by pet owner</i>
@@ -167,7 +167,7 @@ function ServicesPage() {
                           src="./img/KarenDogBath1.jpeg"
                           alt="cat"
                           className="w-100 rounded-3 mt-2 mb-3 img-thumbnail"
-                          style={{ width: '40vw' }}
+                          // style={{ width: '40vw' }}
                         />
                         <h3 style={{textDecoration: "underline"}}>Grooming</h3>
                         <i>Location: Pet Sitter’s home</i>

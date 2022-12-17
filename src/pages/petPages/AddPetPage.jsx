@@ -130,7 +130,7 @@ import AccordionItem4 from '../../components/AccordionItem4';
             // setPhoto([]);
             setActive(null);
 
-            navigate("/pets")
+            navigate(`/pets/${response.data._id}`)
         })
         .catch((error) => console.log(error));
     };
@@ -155,6 +155,7 @@ import AccordionItem4 from '../../components/AccordionItem4';
                             <AccordionItem1 
                                 name={name} 
                                 setName={setName} 
+                                typeOfPet={typeOfPet}
                                 setTypeOfPet={setTypeOfPet} 
                                 weight={weight} 
                                 setWeight={setWeight} 
@@ -162,23 +163,33 @@ import AccordionItem4 from '../../components/AccordionItem4';
                                 setAgeYears={setAgeYears}
                                 ageMonths={ageMonths}
                                 setAgeMonths={setAgeMonths}
+                                gender={gender}
                                 setGender={setGender}
                                 breed={breed}
                                 setBreed={setBreed}
                             />
                             <AccordionItem2 
+                                microchipped={microchipped}
                                 setMicrochipped={setMicrochipped} 
+                                spayedOrNeutered={spayedOrNeutered}
                                 setSpayedOrNeutered={setSpayedOrNeutered} 
+                                houseTrained={houseTrained}
                                 setHouseTrained={setHouseTrained} 
+                                friendlyWithDogs={friendlyWithDogs}
                                 setFriendlyWithDogs={setFriendlyWithDogs} 
+                                friendlyWithCats={friendlyWithCats}
                                 setFriendlyWithCats={setFriendlyWithCats} 
                                 about={about}
                                 setAbout={setAbout}
                             />
                             <AccordionItem3
+                                pottySchedule={pottySchedule}
                                 setPottySchedule={setPottySchedule}
+                                energy={energy}
                                 setEnergy={setEnergy} 
+                                feedingSchedule={feedingSchedule}
                                 setFeedingSchedule={setFeedingSchedule} 
+                                canBeAlone={canBeAlone}
                                 setCanBeAlone={setCanBeAlone} 
                                 medication={medication} 
                                 setMedication={setMedication}
